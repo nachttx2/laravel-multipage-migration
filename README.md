@@ -1,59 +1,207 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Laboratory Activity: Laravel Multi-Page Migration
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+**Student Name:** Karl Wayne M. Padullon  
+**Course & Section:** ITMWD5M2 WebDev 3 Lab
+**Sir:** Amstrong Luiese landeza
 
-## About Laravel
+---
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## 🎥 Video Demonstration
+* 🔗 [Panoorin ang Video Demo sa Loom](https://www.loom.com/share/b3d46c177060490a8ecb9cc40d3ffab8)
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+---
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+**Screenshot of Code & File Location**
+<img width="1920" height="1080" alt="Screenshot (84)" src="https://github.com/user-attachments/assets/48193443-6045-429b-b28e-d9e49e1ed370" />
 
-## Learning Laravel
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework. You can also check out [Laravel Learn](https://laravel.com/learn), where you will be guided through building a modern Laravel application.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
 
-## Laravel Sponsors
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+## 💻 Code Snippets Compilation
 
-### Premium Partners
+**Home.blade.php** 
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+@extends('layouts.app') 
 
-## Contributing
+ 
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+@section('title', 'Home Page') 
 
-## Code of Conduct
+ 
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+@section('content') 
 
-## Security Vulnerabilities
+    <h1>Welcome to Our Homepage</h1> 
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+    <p>This page was successfully migrated from native PHP to Laravel Blade templates!</p> 
 
-## License
+    <p>Explore our navigation bar above to view other pages seamlessly without duplicating HTML structure.</p> 
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+@endsection 
+
+ 
+
+**About.blade.php** 
+
+@extends('layouts.app') 
+
+ 
+
+@section('title', 'About Us') 
+
+ 
+
+@section('content') 
+
+    <h1>About Our System</h1> 
+
+    <p>Learn more about our institutional mission, course objectives, and student web development projects.</p> 
+
+@endsection 
+
+ 
+
+**Contact.blade.php** 
+
+@extends('layouts.app') 
+
+ 
+
+@section('title', 'Contact Us') 
+
+ 
+
+@section('content') 
+
+    <h1>Get in Touch</h1> 
+
+    <p>Reach out to our team via email or visit our university laboratory workstation.</p> 
+
+@endsection 
+
+ 
+
+ 
+
+**App.blade.php** 
+
+<!DOCTYPE html> 
+
+<html lang="en"> 
+
+<head> 
+
+    <meta charset="UTF-8"> 
+
+    <title>@yield('title', 'My Laravel App')</title> 
+
+    <!-- Linking CSS using Laravel asset helper --> 
+
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}"> 
+
+</head> 
+
+<body> 
+
+    <!-- Shared Navigation Bar --> 
+
+    <nav style="background: #f4f4f4; padding: 10px; margin-bottom: 20px;"> 
+
+        <a href="/">Home</a> |  
+
+        <a href="/about">About Us</a> |  
+
+        <!-- <a href="/services">Services</a> | --> 
+
+        <a href="/contact">Contact</a> 
+
+    </nav> 
+
+    <hr> 
+
+    <!-- Dynamic Page Content Injection Point --> 
+
+    <div class="container"> 
+
+        @yield('content') 
+
+    </div> 
+
+    <hr> 
+
+    <!-- Shared Footer --> 
+
+    <footer> 
+
+        <p>&copy; 2026 Web Development 3 Class. All rights reserved.</p> 
+
+    </footer> 
+
+</body> 
+
+</html> 
+
+ 
+
+**Web.php** 
+
+<?php 
+
+ 
+
+use Illuminate\Support\Facades\Route; 
+
+ 
+
+/* 
+
+|-------------------------------------------------------------------------- 
+
+| Multi-Page Migration Routes 
+
+|-------------------------------------------------------------------------- 
+
+*/ 
+
+ 
+
+// Home Route 
+
+Route::get('/', function () { 
+
+    return view('home'); 
+
+}); 
+
+ 
+
+// About Route 
+
+Route::get('/about', function () { 
+
+    return view('about'); 
+
+}); 
+
+ 
+
+// Services Route 
+
+Route::get('/services', function () { 
+
+    return view('services'); 
+
+}); 
+
+ 
+
+// Contact Route 
+
+Route::get('/contact', function () { 
+
+    return view('contact'); 
+
+}); 
+
+ 
